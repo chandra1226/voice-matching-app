@@ -18,8 +18,5 @@
     "jsonwebtoken": "^9.0.2",
     "bcryptjs": "^2.4.3",
     "cosine-similarity": "^1.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
   }
 }
