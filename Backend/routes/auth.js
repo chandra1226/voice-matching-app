@@ -9,17 +9,6 @@ router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Input validation
-    if (!username || !email || !password) {
-      return res.status(400).json({ message: 'All fields are required' });
-    }
-
-    // Check if email already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'Email already exists' });
-    }
-
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -42,11 +31,6 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Input validation
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password are required' });
-    }
-
     // Find the user
     const user = await User.findOne({ email });
     if (!user) {
@@ -68,4 +52,4 @@ router.post('/login', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router; // Ensure this line is present
